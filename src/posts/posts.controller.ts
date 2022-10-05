@@ -10,8 +10,8 @@ export class PostsController {
   }
 
   @Get('/:postid')
-  getPostDetails(@Param() param): string {
-    return `details of postid = ${param.postid}`;
+  getPostDetails(@Param('postId') postId: string): string {
+    return `details of postid = ${postId}`;
   }
 
   @Post('/')
@@ -20,17 +20,17 @@ export class PostsController {
   }
 
   @Delete('/:postid')
-  deletePost(@Param() param): string {
-    return `delete postid = ${param.postid}`;
+  deletePost(@Param('postId') postId: string): string {
+    return `delete postid = ${postId}`;
   }
 
   @Put('/:postid/like')
-  likePost(@Param() param): string {
-    return `liked post ${param.postid}`;
+  likePost(@Param('postId') postId: string): string {
+    return `liked post ${postId}`;
   }
 
   @Delete('/:postid/like')
-  unlikePost(@Param() param): string {
-    return `unliked post ${param.postid}`;
+  unlikePost(@Param('postId') postId: string): string {
+    return `unliked post ${postId}`;
   }
 }

@@ -5,13 +5,13 @@ import { ApiTags } from '@nestjs/swagger/dist';
 @Controller('users')
 export class UsersController {
   @Get('/@:username')
-  getUserByUsername(@Param() param): string {
-    return `details of username = ${param.username}`;
+  getUserByUsername(@Param('username') username: string): string {
+    return `details of username = ${username}`;
   }
 
   @Get('/:userid')
-  getUserByUserid(@Param() param): string {
-    return `details of the user id = ${param.userid}`;
+  getUserByUserid(@Param('userid') userid: string): string {
+    return `details of the user id = ${userid}`;
   }
 
   @Put('/:userid/follow')
