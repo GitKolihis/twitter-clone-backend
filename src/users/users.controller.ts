@@ -1,5 +1,7 @@
 import { Controller, Get, Param, Post, Put, Delete } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger/dist';
 
+@ApiTags('Users')
 @Controller('users')
 export class UsersController {
   @Get('/@:username')
