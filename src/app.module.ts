@@ -21,7 +21,7 @@ import { PostEntity } from './posts/post.entity';
       synchronize: true,
       logging: 'all',
       logger: 'advanced-console',
-      dropSchema: true,
+      // dropSchema: true,
     }),
   ],
   controllers: [
