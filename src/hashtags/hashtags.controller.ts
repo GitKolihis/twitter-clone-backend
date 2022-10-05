@@ -11,7 +11,7 @@ export class HashtagsController {
   }
 
   @Get('/:tag/posts')
-  getPostsForHashtag(@Param('tag') tag: string): string {
+  getPostsForHashtag(@Param('tag') tag: string) {
     return `show all post with hastag ${tag}`;
   }
 }
