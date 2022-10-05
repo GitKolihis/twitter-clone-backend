@@ -6,6 +6,7 @@ import { PostsController } from './posts/posts.controller';
 import { HashtagsController } from './hashtags/hashtags.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from './users/users.entity';
+import { PostEntity } from './posts/post.entity';
 
 @Module({
   imports: [
@@ -16,10 +17,11 @@ import { UserEntity } from './users/users.entity';
       username: 'twitteradmin',
       password: 'twitterpass',
       database: 'twitterdb',
-      entities: [UserEntity],
+      entities: [UserEntity, PostEntity],
       synchronize: true,
       logging: 'all',
       logger: 'advanced-console',
+      dropSchema: true,
     }),
   ],
   controllers: [
