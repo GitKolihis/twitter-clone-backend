@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Repository } from "typeorm";
+import { DataSource, EntityRepository, Repository } from "typeorm";
 import { UserEntity } from "./users.entity";
 
-export class UserRepository extends Repository<UserEntity> {
+export const UserRepository = DataSourc
     
 }

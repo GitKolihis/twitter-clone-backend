@@ -1,12 +1,21 @@
-import { Controller, Get, Param, Post, Put, Delete } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+import { Controller, Get, Param, Post, Put, Delete, NotFoundException } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger/dist';
+import { UsersService } from './users.service';
 
 @ApiTags('Users')
 @Controller('users')
 export class UsersController {
+
+  constructor(private userService: UsersService){}
+
   @Get('/@:username')
-  getUserByUsername(@Param('username') username: string) {
-    return `details of username = ${username}`;
+  async getUserByUsername(@Param('username') username: string): Promise<any> {
+    const user = await this.userService.getUserByUsername(username)
+    if (!user) {
+      throw new NotFoundException('User Not Found')
+    }
+    return user;
   }
 
   @Get('/:userid')
